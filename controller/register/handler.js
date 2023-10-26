@@ -15,7 +15,7 @@ const handlerRegister = (req, res) => {
     is_active,
   } = req.body;
   const user_id = uuidv4();
-  const role_id = uuidv4();
+  const role_id = 2;
   const query = `INSERT INTO
  user_info (
     user_id,
