@@ -5,7 +5,6 @@ const preHandlerRegister = (req, res, next) => {
 
   const query = `SELECT * FROM user_info WHERE student_id = '${student_id}'`;
   executeQuery(query, (data) => {
-    console.log(data.rows)
     if ( !data.rows[0] ) {
       next();
     } else {
