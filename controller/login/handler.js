@@ -6,7 +6,6 @@ const bcrypt = require("bcryptjs");
 const secret = process.env.SECRET_KEY;
 
 const handlerLogin = (req, res) => {
-  // get user input
   const { student_id, user_password } = req.body;
 
   const query = `SELECT * FROM user_info WHERE student_id = '${student_id}'`;
@@ -15,14 +14,13 @@ const handlerLogin = (req, res) => {
     if (data.rows.length === 0) {
       return res.status(404).json({ message: "No user found" });
     }
-    //     return res.send({success:data.rowCount === 1})
-    console.log(data.rows);
+    
     bcrypt.compare(
       user_password,
       data.rows[0].user_password,
       (err, isLogin) => {
         if (isLogin) {
-          const tokens = jwt.sign(
+          const token = jwt.sign(
             {
               role_id: data.rows[0].role_id,
               user_id: data.rows[0].user_id,
@@ -34,9 +32,9 @@ const handlerLogin = (req, res) => {
               expiresIn: "3h",
             }
           );
-          return res.send({ result: { accessToken: tokens } });
+          return res.send({ result: { accessToken: token } });
         } else {
-          return res.status(400).json({ message: "Login failed" });
+          return res.status(400).json({ message: err });
         }
       }
     );
