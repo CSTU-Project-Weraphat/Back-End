@@ -31,7 +31,7 @@ const handlerRegister = (req, res) => {
      line_id,
      grade,
      phone
-    
+     
  )
 VALUES
  (
