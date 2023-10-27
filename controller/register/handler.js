@@ -11,8 +11,8 @@ const handlerRegister = (req, res) => {
     card_id,
     line_id,
     grade,
-    phone,
-    is_active,
+    phone
+    
   } = req.body;
   const user_id = uuidv4();
   const role_id = 2; // นักศึกษา
@@ -28,8 +28,8 @@ const handlerRegister = (req, res) => {
      card_id,
      line_id,
      grade,
-     phone,
-     is_active
+     phone
+     
  )
 VALUES
  (
@@ -43,8 +43,8 @@ VALUES
      '${card_id}',
      '${line_id}',
      '${grade}',
-     '${phone}',
-     '${is_active}'
+     '${phone}'
+    
  )`;
  executeQuery(query, (data)=>{
   res.send({success:data.rowCount === 1})
