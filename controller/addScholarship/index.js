@@ -1,5 +1,6 @@
 const handlerAddscholarship = require("./handler");
+const schema = require("./schema");
 
-const handleAddscholarship = [handlerAddscholarship];
+const handleAddscholarship = [schema,handlerAddscholarship];
 
 module.exports = handleAddscholarship;

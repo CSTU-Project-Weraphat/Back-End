@@ -1,4 +1,5 @@
 const executeQuery = require("../../utils/pool_connections");
+const ROLE_ID = require("../../enum/type_roleid")
 const { v4: uuidv4 } = require("uuid");
 
 const handlerRegister = (req, res) => {
@@ -15,7 +16,8 @@ const handlerRegister = (req, res) => {
     
   } = req.body;
   const user_id = uuidv4();
-  const role_id = 2; // นักศึกษา
+  const role_id = ROLE_ID.STUDENT; 
+
   const query = `INSERT INTO
  user_info (
     user_id,
@@ -46,6 +48,7 @@ VALUES
      '${phone}'
     
  )`;
+ 
  executeQuery(query, (data)=>{
   res.send({success:data.rowCount === 1})
 });
