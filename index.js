@@ -16,7 +16,7 @@ app.get("/api/scholarship/classYearType", handleclassYearType),
 app.get("/api/scholarship/scholarshipType", handleScholarshipType),
 
 app.post("/api/scholarship/login", handleLogin);
-app.post("/api/scholarship/user_info", handleRegister);
+app.post("/api/scholarship/register", handleRegister);
 app.post("/api/scholarship/addScholarship", handleAuthen,handleAddscholarship)
 
 app.listen(4000,()=>{console.log('Running on Port 4000')});

@@ -1,5 +1,6 @@
 const handlerLogin = require("./handler");
+const schema = require("./schema")
 
-const handleLogin = [handlerLogin];
+const handleLogin = [schema,handlerLogin];
 
 module.exports = handleLogin;

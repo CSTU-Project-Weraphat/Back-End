@@ -2,6 +2,7 @@ const executeQuery = require("../../utils/pool_connections");
 const { v4: uuidv4 } = require("uuid");
 
 const handlerAddscholarship = (req, res) => {
+  console.log(req.user);
   const {
     scholarship_name,
     scholarship_year,
@@ -11,7 +12,6 @@ const handlerAddscholarship = (req, res) => {
     start_date,
     end_date,
     scholarship_type_id,
-    is_active,
     color_tag,
     scholarship_codition,
     scholarship_qualification,
@@ -29,7 +29,6 @@ const handlerAddscholarship = (req, res) => {
       start_date,
       end_date,
       description,
-      is_active,
       color_tag,
       scholarship_condition,
       scholarship_qualification
@@ -45,7 +44,6 @@ VALUES
       '${start_date}',
       '${end_date}',
       '${description}',
-      '${is_active}',
       '${color_tag}',
       '${scholarship_codition}',
       '${scholarship_qualification}'
