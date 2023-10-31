@@ -11,14 +11,17 @@ const handleDeleteInformation = require("./controller/information/delete");
 const handlerInformation = require("./controller/information/get");
 const handleAddinformation = require("./controller/information/post");
 const handleEditInformation = require("./controller/information/put");
+const handleGetUsesProfile = require("./controller/user_profile/get");
 
 app.use(express.json());
 app.use(cors({ origin: "*", credentials: true }));
 
 app.get("/api/scholarship/classYearType", handleclassYearType),
-  app.get("/api/scholarship/scholarshipType", handleScholarshipType),
-  app.get("/api/scholarship/getInformation", handlerInformation),
-  app.post("/api/scholarship/login", handleLogin);
+app.get("/api/scholarship/scholarshipType", handleScholarshipType),
+app.get("/api/scholarship/getInformation", handlerInformation),
+app.get("/api/scholarship/getUserProfile", handleAuthen,handleGetUsesProfile),
+
+app.post("/api/scholarship/login", handleLogin);
 app.post("/api/scholarship/register", handleRegister);
 app.post("/api/scholarship/addScholarship", handleAuthen, handleAddscholarship);
 app.post("/api/scholarship/addInformation", handleAuthen, handleAddinformation);
