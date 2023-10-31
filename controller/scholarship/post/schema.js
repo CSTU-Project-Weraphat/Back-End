@@ -1,5 +1,5 @@
 const Joi = require("joi").extend(require('@joi/date'));
-const checkgrade = require("../../utils/check_grade")
+const checkgrade = require("../../../utils/check_grade")
 
 const schema = (req, res, next) => {
     const validateBody = Joi.object().keys({

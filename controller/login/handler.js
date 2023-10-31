@@ -35,7 +35,7 @@ const handlerLogin = (req, res) => {
           );
           return res.send({ result: { accessToken: token } });
         } else {
-          return res.status(400).json({ message: err });
+          return res.status(400).json({ message: "Password Not Match" });
         }
       }
     );
