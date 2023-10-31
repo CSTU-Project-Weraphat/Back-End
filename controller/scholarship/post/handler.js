@@ -1,4 +1,4 @@
-const executeQuery = require("../../utils/pool_connections");
+const executeQuery = require("../../../utils/pool_connections");
 const { v4: uuidv4 } = require("uuid");
 
 const handlerAddscholarship = (req, res) => {
