@@ -12,7 +12,7 @@ const schema = (req, res, next) => {
         end_date:Joi.date().format('YYYY-MM-DD').utc().required(),
         scholarship_type_id:Joi.number().integer().strict().required(),
         color_tag:Joi.string().required(),
-        scholarship_codition: Joi.string().min(3).max(30).required(),
+        scholarship_condition: Joi.string().min(3).max(30).required(),
         scholarship_qualification: Joi.string().min(3).max(30).required(),
     })
 
