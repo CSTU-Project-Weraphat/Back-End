@@ -1,7 +1,7 @@
 const executeQuery = require("../../../utils/pool_connections")
 
 const preHandlerEditScholarship = (req, res, next) => {
-  const { scholarship_id } = req.body;
+  const { scholarship_id } = req.params;
 
   const query = `SELECT scholarship_id FROM scholarship_info WHERE scholarship_id = '${scholarship_id}'`;
   executeQuery(query, (data) => {

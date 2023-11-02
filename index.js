@@ -57,7 +57,7 @@ app.put(
   handleDeleteScholarship
 );
 app.put(
-  "/api/scholarship/editScholarship",
+  "/api/scholarship/editScholarship/:scholarship_id",
   handleAuthen,
   handleEditScholarship
 );

@@ -4,23 +4,24 @@ const check_uuid = require("../../../utils/check_uuid")
 
 const schema = (req, res, next) => {
     const validateBody = Joi.object().keys({
-        scholarship_id:Joi.string().pattern(check_uuid).required(),
-        scholarship_name: Joi.string().min(3).max(30).required(),
-        scholarship_year:Joi.string().min(4).max(4).required(),
-        scholarship_grade:Joi.string().pattern(checkgrade).max(4).required(),
+        scholarship_name: Joi.string().min(3).max(30),
+        scholarship_year:Joi.string().min(4).max(4),
+        scholarship_grade:Joi.string().pattern(checkgrade).max(4),
         description:Joi.string(),
-        class_type_id:Joi.number().integer().strict().required(),
-        start_date:Joi.date().format('YYYY-MM-DD').utc().required(),
-        end_date:Joi.date().format('YYYY-MM-DD').utc().required(),
-        scholarship_type_id:Joi.number().integer().strict().required(),
-        color_tag:Joi.string().required(),
-        scholarship_condition: Joi.string().min(3).max(30).required(),
-        scholarship_qualification: Joi.string().min(3).max(30).required(),
+        class_type_id:Joi.number().integer().strict(),
+        start_date:Joi.date().format('YYYY-MM-DD').utc(),
+        end_date:Joi.date().format('YYYY-MM-DD').utc(),
+        scholarship_type_id:Joi.number().integer().strict(),
+        color_tag:Joi.string(),
+        scholarship_condition: Joi.string().min(3).max(30),
+        scholarship_qualification: Joi.string().min(3).max(30),
     })
 
-    const { error } = validateBody.validate(req.body);
-
-    if (!error) {
+    const validateParams = Joi.string().pattern(check_uuid).required()
+    const { error : errorParams} = validateParams.validate(req.params.scholarship_id) 
+    const { error : errorBody } = validateBody.validate(req.body);
+    
+    if (!errorParams && !errorBody) {
         next();
      } else {
      return res.status(400).send({ result: error.details });

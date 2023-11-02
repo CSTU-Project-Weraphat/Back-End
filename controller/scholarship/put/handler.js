@@ -12,8 +12,7 @@ const handlerEditScholarship = (req,res) => {
         scholarship_type_id,
         color_tag,
         scholarship_condition,
-        scholarship_qualification,
-        scholarship_id
+        scholarship_qualification
       } = req.body;
 
     const updateScholarshipName = (scholarship_name) => {
@@ -91,7 +90,7 @@ const handlerEditScholarship = (req,res) => {
             return `scholarship_qualification = '${scholarship_qualification.trim()}'`;
           }
           return "";
-    }  
+    }
 
     const query = `UPDATE scholarship_info
     SET
@@ -107,7 +106,7 @@ const handlerEditScholarship = (req,res) => {
         ${updateScholarshipCondition(scholarship_condition)}
         ${updateScholarshipQualification(scholarship_qualification)}
     WHERE
-        scholarship_id = '${scholarship_id}'`;
+        scholarship_id = '${req.params.scholarship_id}'`;
 
     executeQuery(query, (data) => {
         res.send({ success:data.rowCount === 1 });
