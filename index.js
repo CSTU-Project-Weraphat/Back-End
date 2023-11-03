@@ -17,29 +17,34 @@ const handlegetScholarshipAll = require("./controller/scholarship/getAll");
 const handlegetHistoryScholarship = require("./controller/scholarship/history");
 const handleDeleteScholarship = require("./controller/scholarship/delete");
 const handleEditScholarship = require("./controller/scholarship/put");
+const handleUpdateSubscribe = require("./controller/alertSubscribe/put");
+const handleSubscribe = require("./controller/subscribe/post");
+const handleFollowScholarship = require("./controller/subscribe/get");
 
 app.use(express.json());
 app.use(cors({ origin: "*", credentials: true }));
 
 app.get("/api/scholarship/classYearType", handleclassYearType),
-app.get("/api/scholarship/scholarshipType", handleScholarshipType),
-app.get("/api/scholarship/getInformation", handlerInformation),
-app.get(
-  "/api/scholarship/getUserProfile",
-  handleAuthen,
-  handleGetUsesProfile
-),
-app.get(
-  "/api/scholarship/getScholarship/:scholarship_id",
-  handlegetScholarship
-),
-app.get("/api/scholarship/getScholarshipAll", handlegetScholarshipAll);
+  app.get("/api/scholarship/scholarshipType", handleScholarshipType),
+  app.get("/api/scholarship/getInformation", handlerInformation),
+  app.get(
+    "/api/scholarship/getUserProfile",
+    handleAuthen,
+    handleGetUsesProfile
+  ),
+  app.get(
+    "/api/scholarship/getScholarship/:scholarship_id",
+    handlegetScholarship
+  ),
+  app.get("/api/scholarship/getScholarshipAll", handlegetScholarshipAll);
 app.get("/api/scholarship/getHistoryScholarship", handlegetHistoryScholarship);
+app.get("/api/scholarship/followscholarship",handleAuthen,handleFollowScholarship)
 
 app.post("/api/scholarship/login", handleLogin);
 app.post("/api/scholarship/register", handleRegister);
 app.post("/api/scholarship/addScholarship", handleAuthen, handleAddscholarship);
 app.post("/api/scholarship/addInformation", handleAuthen, handleAddinformation);
+app.post("/api/scholarship/subscribe/:scholarship_id",handleAuthen,handleSubscribe)
 
 app.put(
   "/api/scholarship/deleteInformation",
@@ -60,6 +65,11 @@ app.put(
   "/api/scholarship/editScholarship/:scholarship_id",
   handleAuthen,
   handleEditScholarship
+);
+app.put(
+  "/api/scholarship/updatesubscribe/:alert_id",
+  handleAuthen,
+  handleUpdateSubscribe
 );
 
 app.listen(4000, () => {
