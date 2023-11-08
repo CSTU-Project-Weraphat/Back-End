@@ -11,7 +11,6 @@ const handlerUpdateSubscribe = (req,res) =>{
         WHERE
             alert_id = '${alert_id}'`;
 
-
     executeQuery(query,(data)=>{
         res.send({success:data.rowCount === 1})
     })
