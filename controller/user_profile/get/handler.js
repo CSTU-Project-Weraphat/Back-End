@@ -8,7 +8,7 @@ const handlerGetUsesProfile = (req, res) => {
        firstname,
        lastname,
        email,
-       student_id,
+       login_id,
        card_id,
        line_id,
        grade,

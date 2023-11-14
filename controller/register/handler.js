@@ -8,8 +8,8 @@ const handlerRegister = async (req, res) => {
     firstname,
     lastname,
     email,
-    student_id,
-    user_password,
+    login_id,
+    password,
     card_id,
     line_id,
     grade,
@@ -19,7 +19,7 @@ const handlerRegister = async (req, res) => {
   const user_id = uuidv4();
   const role_id = ROLE_ID.STUDENT; 
   
-  bcrypt.hash(user_password,10,(err,value) => {
+  bcrypt.hash(password,10,(err,value) => {
     const query = `INSERT INTO
  user_info (
     user_id,
@@ -27,8 +27,8 @@ const handlerRegister = async (req, res) => {
      firstname,
      lastname,
      email,
-     student_id,
-     user_password,
+     login_id,
+     password,
      card_id,
      line_id,
      grade,
@@ -42,7 +42,7 @@ VALUES
      '${firstname}',
      '${lastname}',
      '${email}',
-     '${student_id}',
+     '${login_id}',
      '${value}',
      '${card_id}',
      '${line_id}',

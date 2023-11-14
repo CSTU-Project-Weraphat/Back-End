@@ -8,7 +8,7 @@ const secret = process.env.SECRET_KEY;
 const handlerLogin = (req, res) => {
   const { username, password } = req.body;
   
-  const query = `SELECT role_id,user_id,firstname,lastname,user_password FROM user_info WHERE student_id = '${username}'`;
+  const query = `SELECT role_id,user_id,firstname,lastname,password FROM user_info WHERE login_id = '${username}'`;
   
   executeQuery(query, (data) => {
     
@@ -18,7 +18,7 @@ const handlerLogin = (req, res) => {
     
     bcrypt.compare(
       password,
-      data.rows[0].user_password,
+      data.rows[0].password,
       (err, isLogin) => {
         if (isLogin) {
           const token = jwt.sign(
