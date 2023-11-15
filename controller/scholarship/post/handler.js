@@ -7,7 +7,6 @@ const handlerAddscholarship = (req, res) => {
     scholarship_name,
     scholarship_year,
     scholarship_grade,
-    description,
     class_type_id,
     start_date,
     end_date,
@@ -28,7 +27,6 @@ const handlerAddscholarship = (req, res) => {
       scholarship_type_id,
       start_date,
       end_date,
-      description,
       color_tag,
       scholarship_condition,
       scholarship_qualification
@@ -43,7 +41,6 @@ VALUES
       '${scholarship_type_id}',
       '${start_date}',
       '${end_date}',
-      '${description}',
       '${color_tag}',
       '${scholarship_condition}',
       '${scholarship_qualification}'
