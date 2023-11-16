@@ -12,7 +12,6 @@ const handlergetScholarshipAll = (req,res) => {
         scholarship_type.scholarship_type_name,
         scholarship_info.start_date,
         scholarship_info.end_date,
-        scholarship_info.description,
         scholarship_info.color_tag,
         scholarship_info.scholarship_condition,
         scholarship_info.scholarship_qualification
