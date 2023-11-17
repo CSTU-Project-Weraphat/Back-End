@@ -3,7 +3,7 @@ const executeQuery = require("../../../utils/pool_connections")
 const handlergetScholarshipAll = (req,res) => {
     const query = `
     SELECT
-        scholarship_info.scholarship_id
+        scholarship_info.scholarship_id,
         scholarship_info.scholarship_name,
         scholarship_info.scholarship_year,
         scholarship_info.scholarship_grade,
