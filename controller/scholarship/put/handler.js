@@ -5,7 +5,6 @@ const handlerEditScholarship = (req,res) => {
         scholarship_name,
         scholarship_year,
         scholarship_grade,
-        description,
         class_type_id,
         start_date,
         end_date,
@@ -32,13 +31,6 @@ const handlerEditScholarship = (req,res) => {
     const updateScholarshipgrade = (scholarship_grade) => {
         if (scholarship_grade) {
             return `scholarship_grade = '${scholarship_grade.trim()}',`;
-          }
-          return "";
-    }
-
-    const updateDescription = (description) => {
-        if (description) {
-            return `description = '${description.trim()}',`;
           }
           return "";
     }
@@ -97,7 +89,6 @@ const handlerEditScholarship = (req,res) => {
         ${updateScholarshipName(scholarship_name)}
         ${updateScholarshipYear(scholarship_year)}
         ${updateScholarshipgrade(scholarship_grade)}
-        ${updateDescription(description)}
         ${updateScholarshipClassYearType(class_type_id)}
         ${updateScholarshipStartDate(start_date)}
         ${updateScholarshipEndDate(end_date)}
