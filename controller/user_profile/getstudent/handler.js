@@ -2,6 +2,7 @@ const executeQuery = require("../../../utils/pool_connections");
 
 const handlerGetStudent = (req, res) => {
   const query = `SELECT
+       user_id,
        firstname,
        lastname,
        email,
