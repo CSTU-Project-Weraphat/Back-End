@@ -1,4 +1,5 @@
 const executeQuery = require("../../../utils/pool_connections");
+const handlergetScholarshipAll = require("../getAll/handler")
 
 const handlerDeleteScholarship = (req,res) =>{
     const { scholarship_id } = req.body;
@@ -10,7 +11,8 @@ const handlerDeleteScholarship = (req,res) =>{
           scholarship_id ='${scholarship_id}'`;
   
     executeQuery(query, (data) => {
-      res.send({ success:data.rowCount === 1 });
+      handlergetScholarshipAll(req,res)
+      //res.send({ success:data.rowCount === 1 });
     });
 }
 

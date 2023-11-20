@@ -23,14 +23,9 @@ const handlergetHistoryScholarship = (req,res) => {
     WHERE
         EXTRACT(YEAR FROM CURRENT_TIMESTAMP) + 543 >= CAST(scholarship_info.scholarship_year AS integer)
     AND 
-        scholarship_info.is_active = 'N'
-    AND 
-        CURRENT_TIMESTAMP > scholarship_info.start_date
-    AND 
-        scholarship_info.end_date <= CURRENT_TIMESTAMP`
+        scholarship_info.is_active = 'N'`
 
     executeQuery(query, (data) => {
-        console.log(data)
         res.send({ result: data.rows});
       });
 }

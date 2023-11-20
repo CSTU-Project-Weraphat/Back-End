@@ -30,6 +30,7 @@ const handlergetScholarshipAll = (req,res) => {
         CURRENT_TIMESTAMP <= scholarship_info.end_date`
 
     executeQuery(query, (data) => {
+        
         res.send({ result: data.rows});
       });
 }
