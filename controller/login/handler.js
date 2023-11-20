@@ -8,7 +8,7 @@ const secret = process.env.SECRET_KEY;
 const handlerLogin = (req, res) => {
   const { username, password } = req.body;
   
-  const query = `SELECT role_id,user_id,firstname,lastname,password FROM user_info WHERE login_id = '${username}'`;
+  const query = `SELECT role_id,user_id,firstname,lastname,password FROM user_info WHERE login_id = '${username}' AND is_active ='Y'`;
   
   executeQuery(query, (data) => {
     
