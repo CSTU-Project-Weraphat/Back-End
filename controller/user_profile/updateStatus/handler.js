@@ -1,5 +1,5 @@
 const executeQuery = require("../../../utils/pool_connections");
-
+const handlerGetStudent = require("../getstudent/handler")
 
 const handlerUpdateStatus = (req,res) =>{
     const { user_id } = req.body;
@@ -11,8 +11,8 @@ const handlerUpdateStatus = (req,res) =>{
           user_id ='${user_id}'`;
   
     executeQuery(query, (data) => {
-      
-      res.send({ success:data.rowCount === 1 });
+        handlerGetStudent(req,res)
+      //res.send({ success:data.rowCount === 1 });
     });
 }
 
