@@ -22,6 +22,7 @@ const handleSubscribe = require("./controller/subscribe/post");
 const handleFollowScholarship = require("./controller/subscribe/get");
 const handleMessageAlert = require("./controller/messageAlert/post");
 const handleGetStudent = require("./controller/user_profile/getstudent");
+const handleUpdateStatus = require("./controller/user_profile/updateStatus")
 
 app.use(express.json());
 app.use(cors({ origin: "*", credentials: true }));
@@ -64,6 +65,11 @@ app.put(
   "/api/scholarship/deleteScholarship",
   handleAuthen,
   handleDeleteScholarship
+);
+app.put(
+  "/api/scholarship/updatestatus",
+  handleAuthen,
+  handleUpdateStatus
 );
 app.put(
   "/api/scholarship/editScholarship/:scholarship_id",

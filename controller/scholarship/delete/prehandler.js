@@ -1,6 +1,6 @@
 const executeQuery = require("../../../utils/pool_connections")
 
-const preHandlergetScholarship = (req, res, next) => {
+const preHandlerdeleteScholarship = (req, res, next) => {
   const { scholarship_id } = req.body;
 
   const query = `SELECT scholarship_id FROM scholarship_info WHERE scholarship_id = '${scholarship_id}'`;
@@ -15,4 +15,4 @@ const preHandlergetScholarship = (req, res, next) => {
   });
 };
 
-module.exports = preHandlergetScholarship;
+module.exports = preHandlerdeleteScholarship;
