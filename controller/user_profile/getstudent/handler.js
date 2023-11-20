@@ -10,7 +10,8 @@ const handlerGetStudent = (req, res) => {
        card_id,
        line_id,
        grade,
-       phone
+       phone,
+       is_active
     FROM
         user_info
     WHERE
