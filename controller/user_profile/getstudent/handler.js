@@ -1,9 +1,9 @@
+const ROLE_ID = require("../../../enum/type_roleid");
 const executeQuery = require("../../../utils/pool_connections");
 
-const handlerGetUsesProfile = (req, res) => {
-
-  const {user_id} = req.user
-  
+const handlerGetStudent = (req, res) => {
+    const role_id = ROLE_ID.STUDENT
+   
   const query = `SELECT
        firstname,
        lastname,
@@ -16,11 +16,12 @@ const handlerGetUsesProfile = (req, res) => {
     FROM
         user_info
     WHERE
-        user_id = '${user_id}'`;
+        role_id = '${role_id}'`;
         
   executeQuery(query, (data) => {
+    
     res.send({ result: data.rows});
   });
 };
 
-module.exports = handlerGetUsesProfile;
+module.exports = handlerGetStudent;
