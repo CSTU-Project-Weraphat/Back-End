@@ -25,7 +25,7 @@ const handlergetScholarshipAll = (req,res) => {
     AND 
         scholarship_info.is_active = 'Y'
     AND 
-        CURRENT_TIMESTAMP > scholarship_info.start_date
+        CURRENT_TIMESTAMP >= scholarship_info.start_date
     AND 
         CURRENT_TIMESTAMP <= scholarship_info.end_date`
 
