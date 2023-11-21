@@ -1,3 +1,4 @@
+const ROLE_ID = require("../../../enum/type_roleid");
 const executeQuery = require("../../../utils/pool_connections");
 
 const handlerGetStudent = (req, res) => {
@@ -15,7 +16,7 @@ const handlerGetStudent = (req, res) => {
     FROM
         user_info
     WHERE
-        role_id = '2'`;
+        role_id = '${ROLE_ID.STUDENT}'`;
         
   executeQuery(query, (data) => {
     
