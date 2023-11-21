@@ -22,7 +22,7 @@ const handlergetScholarship = (req,res) => {
         INNER JOIN class_year_type ON class_year_type.class_type_id = scholarship_info.class_type_id
         INNER JOIN scholarship_type ON scholarship_type.scholarship_type_id = scholarship_info.scholarship_type_id
         WHERE
-            scholarship_info.is_active = 'Y' 
+            (scholarship_info.is_active = 'Y' OR scholarship_info.is_active = 'N') 
         AND
             scholarship_info.scholarship_id = '${scholarship_id}'` 
     

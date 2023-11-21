@@ -4,6 +4,7 @@ const handlergetHistoryScholarship = (req,res) => {
 
     const query = `
     SELECT
+        scholarship_info.scholarship_id,
         scholarship_info.scholarship_name,
         scholarship_info.scholarship_year,
         scholarship_info.scholarship_grade,
