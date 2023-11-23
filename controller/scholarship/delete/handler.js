@@ -6,7 +6,7 @@ const handlerDeleteScholarship = (req,res) =>{
 
     const query = `UPDATE scholarship_info 
       SET 
-          is_active = 'N'
+          is_delete = 'N'
       WHERE
           scholarship_id ='${scholarship_id}'`;
   
