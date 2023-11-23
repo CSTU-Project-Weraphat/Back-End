@@ -18,7 +18,7 @@ const handlerFollowScholarship = (req,res) => {
         scholarship_info.scholarship_qualification,
         CASE 
             WHEN subscribe_scholarship.subscribe_id IS NOT NULL THEN 'Y' 
-            ELSE 'N' AS is_following
+            ELSE 'N' 
         END
     FROM
         scholarship_info
@@ -33,7 +33,7 @@ const handlerFollowScholarship = (req,res) => {
     WHERE
             scholarship_info.is_active = 'Y'
         AND 
-            scholarship_info.is_delete = 'Y'
+            scholarship_info.is_delete = 'Y'   
         AND 
             CURRENT_TIMESTAMP >= scholarship_info.start_date
         AND 
