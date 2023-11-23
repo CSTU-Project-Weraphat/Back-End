@@ -1,6 +1,7 @@
 const executeQuery = require("../../../utils/pool_connections")
 
 const handlerFollowScholarship = (req,res) => {
+    
     const query = `
     SELECT 
         scholarship_info.scholarship_id,
