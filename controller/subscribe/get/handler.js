@@ -19,7 +19,7 @@ const handlerFollowScholarship = (req,res) => {
         CASE 
             WHEN subscribe_scholarship.subscribe_id IS NOT NULL THEN 'Y' 
             ELSE 'N' 
-        END
+        END is_follow
     FROM
         scholarship_info
     INNER JOIN
@@ -31,6 +31,11 @@ const handlerFollowScholarship = (req,res) => {
             AND subscribe_scholarship.user_id = '${req.user.user_id}'
             AND subscribe_scholarship.is_active = 'Y'
     WHERE
+        CASE 
+            WHEN subscribe_scholarship.subscribe_id IS NOT NULL     
+            THEN 'Y' ELSE 'N' 
+        END = 'Y'
+        AND
             scholarship_info.is_active = 'Y'
         AND 
             scholarship_info.is_delete = 'Y'   
