@@ -18,8 +18,8 @@ const handlerFollowScholarship = (req,res) => {
         scholarship_info.scholarship_condition,
         scholarship_info.scholarship_qualification,
         CASE 
-            WHEN subscribe_scholarship.subscribe_id IS NOT NULL THEN 'Y' 
-            ELSE 'N' 
+            WHEN subscribe_scholarship.subscribe_id IS NOT NULL 
+            THEN 'Y' ELSE 'N' 
         END is_follow
     FROM
         scholarship_info
@@ -32,11 +32,6 @@ const handlerFollowScholarship = (req,res) => {
             AND subscribe_scholarship.user_id = '${req.user.user_id}'
             AND subscribe_scholarship.is_active = 'Y'
     WHERE
-        CASE 
-            WHEN subscribe_scholarship.subscribe_id IS NOT NULL     
-            THEN 'Y' ELSE 'N' 
-        END = 'Y'
-        AND
             scholarship_info.is_active = 'Y'
         AND 
             scholarship_info.is_delete = 'Y'   
