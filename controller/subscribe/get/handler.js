@@ -17,6 +17,7 @@ const handlerFollowScholarship = (req,res) => {
         scholarship_info.color_tag,
         scholarship_info.scholarship_condition,
         scholarship_info.scholarship_qualification,
+        subscribe_scholarship.subscribe_id,
         CASE 
             WHEN subscribe_scholarship.subscribe_id IS NOT NULL 
             THEN 'Y' ELSE 'N' 
