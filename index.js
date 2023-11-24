@@ -23,7 +23,8 @@ const handleFollowScholarship = require("./controller/subscribe/get");
 const handleMessageAlert = require("./controller/messageAlert/post");
 const handleGetStudent = require("./controller/user_profile/getstudent");
 const handleUpdateStatus = require("./controller/user_profile/updateStatus")
-const handlegetScholarshipComing = require("./controller/scholarship/getComing")
+const handlegetScholarshipComing = require("./controller/scholarship/getComing");
+const handleUnfollowScholarship = require("./controller/subscribe/delete");
 
 app.use(express.json());
 app.use(cors({ origin: "*", credentials: true }));
@@ -83,6 +84,8 @@ app.put(
   handleAuthen,
   handleUpdateSubscribe
 );
+
+app.delete("/api/scholarship/unSubscribe/:subscribe_id",handleAuthen,handleUnfollowScholarship)
 
 app.listen(4000, () => {
   console.log("Running on Port 4000");
