@@ -1,7 +1,7 @@
 const executeQuery = require("../../../utils/pool_connections")
 
 const handlergetHistoryScholarship = (req,res) => {
-
+  
     const query = `
     SELECT
         scholarship_info.scholarship_id,
