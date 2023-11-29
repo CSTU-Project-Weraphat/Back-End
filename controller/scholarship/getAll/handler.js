@@ -27,6 +27,8 @@ const handlergetScholarshipAll = (req,res) => {
     AND 
         scholarship_info.is_delete = 'Y'
     AND 
+        CURRENT_TIMESTAMP >= scholarship_info.start_date
+    AND
         CURRENT_TIMESTAMP <= scholarship_info.end_date`
 
     executeQuery(query, (data) => {
