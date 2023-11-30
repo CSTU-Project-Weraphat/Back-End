@@ -30,13 +30,7 @@ const handleSendEmailAlertSubscribe = require("./controller/sendEmail/AlertSubsc
 const handleSendEmailAlert = require("./controller/sendEmail/AlertAll");
 
 app.use(express.json());
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // ระบุ origin ของเว็บของคุณ
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // ระบุ HTTP methods ที่ยอมรับ
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // ระบุ headers ที่ยอมรับ
-  res.header('Access-Control-Allow-Credentials', true); // ระบุว่าสามารถส่ง cookies ได้ (ถ้ามี)
-  next();
-});
+
 app.use(cors({ origin: "*", credentials: true }));
 
 app.get("/api/scholarship/classYearType", handleclassYearType),
