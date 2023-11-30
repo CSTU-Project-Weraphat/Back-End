@@ -25,7 +25,7 @@ const handlerEditInformation = (req, res) => {
             ${updateDescription(description)}
             user_id = '${user_id}'
         WHERE 
-            info_id = '${info_id}'`;
+            info_id = '${req.params.info_id}'`;
 
     executeQuery(query, (data) => {
         res.send({ success:data.rowCount === 1 });
