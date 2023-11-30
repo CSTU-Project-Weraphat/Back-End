@@ -31,7 +31,7 @@ const handleSendEmailAlert = require("./controller/sendEmail/AlertAll");
 
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({ origin: "*", credentials: true }));
 
 app.get("/api/scholarship/classYearType", handleclassYearType),
 app.get("/api/scholarship/scholarshipType", handleScholarshipType),
