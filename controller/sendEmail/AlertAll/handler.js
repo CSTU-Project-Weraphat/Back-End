@@ -46,9 +46,9 @@ const handlerSendEmailAlert = (req,res) => {
             if(err)
               console.log(err)
             else
-              console.log(info);
+              res.send({result : data.rows})
           });
-        res.send({result : data.rows})
+        
     });
 }
 
