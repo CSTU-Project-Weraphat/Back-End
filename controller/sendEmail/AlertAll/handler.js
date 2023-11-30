@@ -38,7 +38,7 @@ const handlerSendEmailAlert = (req,res) => {
           let mailOptions = {
             from: process.env.EMAIL_NODEMAILER,  // sender
             to: Mail,   // list of receivers
-            subject: 'ทดสอบแจ้งเตือนผ่านอีเมลรอบที่ 2 ',   // Mail subject
+            subject: 'ทดสอบแจ้งเตือนผ่านอีเมลรอบที่ 3 ',   // Mail subject
             html: '<b>ทุนที่เปิดใหม่ล่าสุด</b>'  // HTML body
           };
           
