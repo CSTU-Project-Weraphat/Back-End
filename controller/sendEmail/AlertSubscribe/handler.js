@@ -23,15 +23,15 @@ WHERE
       const transporter = nodemailer.createTransport({
         service: 'hotmail',
         auth: {
-          user: 'zParkAS@hotmail.co.th', // your email
-          pass: 'Weraphat#*-/0' // your email password
+          user: process.env.EMAIL_NODEMAILER, // your email
+          pass: process.env.PASSWORD_NODEMAILER // your email password
         }
       });
 
       const Mail = data.rows.map((item)=>(item.email))
 
       let mailOptions = {
-        from: 'zParkAS@hotmail.co.th',  // sender
+        from: process.env.EMAIL_NODEMAILER,  // sender
         to: Mail,   // list of receivers
         subject: 'ทดสอบแจ้งเตือนผ่านอีเมลรอบที่ 1 ',   // Mail subject
         html: '<b>ทุนที่เปิดใหม่ล่าสุด</b>'  // HTML body
