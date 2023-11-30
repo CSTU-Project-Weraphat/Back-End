@@ -59,7 +59,7 @@ app.post("/api/scholarship/addInformation", handleAuthen, handleAddinformation);
 app.post("/api/scholarship/subscribe/:scholarship_id",handleAuthen,handleSubscribe)
 app.post("/api/scholarship/messagealert",handleAuthen,handleMessageAlert)
 app.post("/api/scholarship/alertsubscribe/:scholarship_id",handleAuthen,handleSendEmailAlertSubscribe)
-app.post("/api/scholarship/alertschoalrship/:scholarship_id",handleAuthen,handleSendEmailAlert)
+app.post("/api/scholarship/alertscholarship/:scholarship_id",handleAuthen,handleSendEmailAlert)
 
 app.put(
   "/api/scholarship/deleteInformation",
