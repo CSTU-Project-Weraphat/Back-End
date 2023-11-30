@@ -31,7 +31,7 @@ const handleSendEmailAlert = require("./controller/sendEmail/AlertAll");
 
 app.use(express.json());
 
-app.use(cors({ origin: "https://panicky-trunks-dove.cyclic.app", credentials: true }));
+app.use(cors());
 
 app.get("/api/scholarship/classYearType", handleclassYearType),
 app.get("/api/scholarship/scholarshipType", handleScholarshipType),
