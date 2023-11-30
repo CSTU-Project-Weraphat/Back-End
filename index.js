@@ -26,6 +26,8 @@ const handleUpdateStatus = require("./controller/user_profile/updateStatus")
 const handlegetScholarshipComing = require("./controller/scholarship/getComing");
 const handleUnfollowScholarship = require("./controller/subscribe/delete");
 const handlegetManageScholarship = require("./controller/scholarship/manage");
+const handleSendEmailAlertSubscribe = require("./controller/sendEmail/AlertSubscribe");
+const handleSendEmailAlert = require("./controller/sendEmail/AlertAll");
 
 app.use(express.json());
 app.use(cors({ origin: "*", credentials: true }));
@@ -55,6 +57,8 @@ app.post("/api/scholarship/addScholarship", handleAuthen, handleAddscholarship);
 app.post("/api/scholarship/addInformation", handleAuthen, handleAddinformation);
 app.post("/api/scholarship/subscribe/:scholarship_id",handleAuthen,handleSubscribe)
 app.post("/api/scholarship/messagealert",handleAuthen,handleMessageAlert)
+app.post("/api/scholarship/alertsubscribe/:scholarship_id",handleAuthen,handleSendEmailAlertSubscribe)
+app.post("/api/scholarship/alertschoalrship/:scholarship_id",handleAuthen,handleSendEmailAlert)
 
 app.put(
   "/api/scholarship/deleteInformation",
