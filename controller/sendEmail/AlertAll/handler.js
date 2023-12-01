@@ -38,8 +38,8 @@ const handlerSendEmailAlert = (req,res) => {
           let mailOptions = {
             from: process.env.EMAIL_NODEMAILER,  // sender
             to: Mail,   // list of receivers
-            subject: 'ทดสอบแจ้งเตือนผ่านอีเมลรอบที่ 3 ',   // Mail subject
-            html: '<b>ทุนที่เปิดใหม่ล่าสุด</b>'  // HTML body
+            subject: 'ทดสอบแจ้งเตือนผ่านอีเมลรอบที่ 6 ',   // Mail subject
+            html: '<b>ทดสอบ API ผ่าน Backend ที่ deploy</b>'  // HTML body
           };
           
           transporter.sendMail(mailOptions, function (err, info) {
