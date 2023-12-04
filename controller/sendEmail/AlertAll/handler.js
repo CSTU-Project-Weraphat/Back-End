@@ -29,15 +29,15 @@ const handlerSendEmailAlert = (req,res) => {
       const transporter = nodemailer.createTransport({
             service: 'hotmail',
             auth: {
-              user: process.env.EMAIL_NODEMAILER, // your email
-              pass: process.env.PASSWORD_NODEMAILER // your email password
+              user: "zParkAS@hotmail.co.th", // your email
+              pass: "Weraphat#*-/0" // your email password
             }
           });
     
           const Mail = data.rows.map((item)=>(item.email))
           
           let mailOptions = {
-            from: process.env.EMAIL_NODEMAILER,  // sender
+            from: "zParkAS@hotmail.co.th",  // sender
             to: Mail,   // list of receivers
             subject: 'ทดสอบแจ้งเตือนผ่านอีเมลรอบที่ 6 ',   // Mail subject
             html: '<b>ทดสอบ API ผ่าน Backend ที่ deploy</b>'  // HTML body
