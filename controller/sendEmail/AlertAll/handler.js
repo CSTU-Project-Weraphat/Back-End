@@ -25,7 +25,8 @@ const handlerSendEmailAlert = (req,res) => {
         user_info.role_id = '${ROLE_ID.STUDENT}'`
 
     executeQuery(query, (data) => {
-        const transporter = nodemailer.createTransport({
+      //const transporter = 
+        nodemailer.createTransport({
             service: 'hotmail',
             auth: {
               user: process.env.EMAIL_NODEMAILER, // your email
@@ -41,13 +42,13 @@ const handlerSendEmailAlert = (req,res) => {
             subject: 'ทดสอบแจ้งเตือนผ่านอีเมลรอบที่ 6 ',   // Mail subject
             html: '<b>ทดสอบ API ผ่าน Backend ที่ deploy</b>'  // HTML body
           };
-          
-          transporter.sendMail(mailOptions, function (err, info) {
-            if(err)
-              console.log(err)
-            else
-              res.send({result : data.rows})
-          });
+          res.send({result : data.rows})
+          // transporter.sendMail(mailOptions, function (err, info) {
+          //   if(err)
+          //     console.log(err)
+          //   else
+          //     res.send({result : data.rows})
+          // });
         
     });
 }
