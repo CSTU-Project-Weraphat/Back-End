@@ -1,7 +1,7 @@
 const executeQuery = require("../../../utils/pool_connections")
 
 const preHandlerEditInformation = (req, res, next) => {
-  const { info_id } = req.body;
+  const { info_id } = req.params;
 
   const query = `SELECT info_id FROM information WHERE info_id = '${info_id}'`;
   executeQuery(query, (data) => {

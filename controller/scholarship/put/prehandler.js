@@ -10,7 +10,7 @@ const preHandlerEditScholarship = (req, res, next) => {
     } else {
       return res
         .status(400)
-        .send({ message: `InfoID ${info_id} Not Found` });
+        .send({ message: `ScholarshipID ${scholarship_id} Not Found` });
     }
   });
 };

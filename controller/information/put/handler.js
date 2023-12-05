@@ -1,8 +1,8 @@
 const executeQuery = require("../../../utils/pool_connections")
 
 const handlerEditInformation = (req, res) => {
-  const { title,description,info_id } = req.body;
-
+  const { title,description} = req.body;
+    const {info_id} = req.params
     const updateTitle = (title) => {
         if (title) {
             return `title = '${title.trim()}',`;
@@ -25,7 +25,7 @@ const handlerEditInformation = (req, res) => {
             ${updateDescription(description)}
             user_id = '${user_id}'
         WHERE 
-            info_id = '${req.params.info_id}'`;
+            info_id = '${info_id}'`;
 
     executeQuery(query, (data) => {
         res.send({ success:data.rowCount === 1 });
