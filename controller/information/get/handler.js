@@ -14,14 +14,15 @@ const handlerInformation = (req, res) => {
         information
     WHERE
         is_active = 'Y' 
+    ORDER BY 
+        create_date DESC
     LIMIT ${limit} 
     OFFSET ${offset} ;
 
     SELECT 
          COUNT(info_id)  
     FROM 
-         information ;
-    `;
+         information;`;
         
   executeQuery(query, (data) => {
     res.send({ result: data[0].rows, total: Number(data[1].rows[0].count) });

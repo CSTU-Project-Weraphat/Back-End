@@ -25,7 +25,8 @@ const handlergetScholarshipComing = (req,res) => {
     AND 
         scholarship_info.is_active = 'Y'
     AND 
-        scholarship_info.start_date > CURRENT_TIMESTAMP`
+        scholarship_info.start_date > CURRENT_TIMESTAMP
+    ORDER BY scholarship_info.start_date ASC`
 
     executeQuery(query, (data) => {
         

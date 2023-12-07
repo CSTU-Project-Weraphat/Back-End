@@ -19,6 +19,7 @@ const handlergetHistoryScholarship = (req,res) => {
         scholarship_info.scholarship_qualification
     FROM
         scholarship_info
+        
     INNER JOIN class_year_type ON class_year_type.class_type_id = scholarship_info.class_type_id
     INNER JOIN scholarship_type ON scholarship_type.scholarship_type_id = scholarship_info.scholarship_type_id
     WHERE
@@ -26,7 +27,8 @@ const handlergetHistoryScholarship = (req,res) => {
     AND 
         scholarship_info.is_active = 'Y'
     AND
-        CURRENT_TIMESTAMP > scholarship_info.end_date`
+        CURRENT_TIMESTAMP > scholarship_info.end_date
+    ORDER BY scholarship_info.end_date DESC`
 
     executeQuery(query, (data) => {
         res.send({ result: data.rows});
