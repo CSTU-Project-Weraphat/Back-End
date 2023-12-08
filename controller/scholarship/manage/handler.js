@@ -1,6 +1,14 @@
 const executeQuery = require("../../../utils/pool_connections")
 
 const handlergetManageScholarship = (req,res) => {
+    const {scholarship_id} = req.query
+  const queryScholarshipId = (scholarship_id) =>{
+    if(!scholarship_id){
+        return ""
+    }else{
+        return `AND  scholarship_type.scholarship_type_id = '${scholarship_id}'`
+    }
+  }
     const query = `
     SELECT
         scholarship_info.scholarship_id,
@@ -27,7 +35,9 @@ const handlergetManageScholarship = (req,res) => {
     AND 
         scholarship_info.is_delete = 'Y'
     AND 
-        CURRENT_TIMESTAMP <= scholarship_info.end_date`
+        CURRENT_TIMESTAMP <= scholarship_info.end_date
+        
+        ${queryScholarshipId(scholarship_id)}`
 
     executeQuery(query, (data) => {
         
