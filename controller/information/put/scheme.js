@@ -3,8 +3,8 @@ const check_uuid = require("../../../utils/check_uuid")
 
 const schema = (req, res, next) => {
     const validateBody = Joi.object().keys({
-        title: Joi.string().min(3).max(30),
-        description: Joi.string().min(3).max(200),
+        title: Joi.string().min(3).max(100),
+        description: Joi.string().min(3).max(500),
     })
     const validateParams = Joi.string().pattern(check_uuid).required()
     const { error : errorParams} = validateParams.validate(req.params.scholarship_id) 

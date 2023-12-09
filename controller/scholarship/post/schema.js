@@ -3,7 +3,7 @@ const checkgrade = require("../../../utils/check_grade")
 
 const schema = (req, res, next) => {
     const validateBody = Joi.object().keys({
-        scholarship_name: Joi.string().min(3).max(30).required(),
+        scholarship_name: Joi.string().min(3).max(100).required(),
         scholarship_year:Joi.string().min(4).max(4).required(),
         scholarship_grade:Joi.string().pattern(checkgrade).max(4).required(),
         class_type_id:Joi.number().integer().strict().required(),
@@ -11,8 +11,8 @@ const schema = (req, res, next) => {
         end_date:Joi.date().utc().required(),
         scholarship_type_id:Joi.number().integer().strict().required(),
         color_tag:Joi.string().required(),
-        scholarship_condition: Joi.string().min(3).max(30).required(),
-        scholarship_qualification: Joi.string().min(3).max(30).required(),
+        scholarship_condition: Joi.string().min(3).max(50).required(),
+        scholarship_qualification: Joi.string().min(3).max(500).required(),
     })
 
     const { error } = validateBody.validate(req.body);
