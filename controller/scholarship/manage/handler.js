@@ -29,7 +29,7 @@ const handlergetManageScholarship = (req,res) => {
     INNER JOIN class_year_type ON class_year_type.class_type_id = scholarship_info.class_type_id
     INNER JOIN scholarship_type ON scholarship_type.scholarship_type_id = scholarship_info.scholarship_type_id
     WHERE
-        EXTRACT(YEAR FROM CURRENT_TIMESTAMP) + 543 = CAST(scholarship_info.scholarship_year AS integer)
+        EXTRACT(YEAR FROM CURRENT_TIMESTAMP) + 543 <= CAST(scholarship_info.scholarship_year AS integer)
     AND 
         scholarship_info.is_active = 'Y' 
     AND 
