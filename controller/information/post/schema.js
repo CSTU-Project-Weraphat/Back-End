@@ -2,8 +2,8 @@ const Joi = require("joi");
 
 const schema = (req, res, next) => {
     const validateBody = Joi.object().keys({
-        title: Joi.string().min(3).max(100).required(),
-        description: Joi.string().min(3).max(500).required(),
+        title: Joi.string().min(3).max(500).required(),
+        description: Joi.string().min(3).max(1000).required(),
     })
 
     const { error } = validateBody.validate(req.body);
