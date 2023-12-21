@@ -17,10 +17,8 @@ const handlegetScholarshipAll = require("./controller/scholarship/getAll");
 const handlegetHistoryScholarship = require("./controller/scholarship/history");
 const handleDeleteScholarship = require("./controller/scholarship/delete");
 const handleEditScholarship = require("./controller/scholarship/put");
-const handleUpdateSubscribe = require("./controller/alertSubscribe/put");
 const handleSubscribe = require("./controller/subscribe/post");
 const handleFollowScholarship = require("./controller/subscribe/get");
-const handleMessageAlert = require("./controller/messageAlert/post");
 const handleGetStudent = require("./controller/user_profile/getstudent");
 const handleUpdateStatus = require("./controller/user_profile/updateStatus")
 const handlegetScholarshipComing = require("./controller/scholarship/getComing");
@@ -57,7 +55,6 @@ app.post("/api/scholarship/register", handleRegister);
 app.post("/api/scholarship/addScholarship", handleAuthen, handleAddscholarship);
 app.post("/api/scholarship/addInformation", handleAuthen, handleAddinformation);
 app.post("/api/scholarship/subscribe/:scholarship_id",handleAuthen,handleSubscribe)
-app.post("/api/scholarship/messagealert",handleAuthen,handleMessageAlert)
 app.post("/api/scholarship/alertsubscribe/:scholarship_id",handleAuthen,handleSendEmailAlertSubscribe)
 app.post("/api/scholarship/alertscholarship/:scholarship_id",handleAuthen,handleSendEmailAlert)
 
@@ -85,11 +82,6 @@ app.put(
   "/api/scholarship/editScholarship/:scholarship_id",
   handleAuthen,
   handleEditScholarship
-);
-app.put(
-  "/api/scholarship/updatesubscribe/:alert_id",
-  handleAuthen,
-  handleUpdateSubscribe
 );
 
 app.delete("/api/scholarship/unSubscribe/:subscribe_id",handleAuthen,handleUnfollowScholarship)

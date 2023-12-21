@@ -27,31 +27,32 @@ const handlerSendEmailAlert = (req,res) => {
     executeQuery(query, (data) => {
       
       const transporter = nodemailer.createTransport({
-            service: 'hotmail',
+        service: 'hotmail',
             auth: {
-              user: "zParkAS@hotmail.co.th", // your email
-              pass: "Weraphat#*-/0" // your email password
+              user: process.env.EMAIL_NODEMAILER, // your email
+              pass: process.env.PASSWORD_NODEMAILER // your email password
             }
           });
     
           const Mail = data.rows.map((item)=>(item.email))
-          
+          const Subject = "ประกาศ "+data.rows[0].scholarship_name
+
           let mailOptions = {
-            from: "zParkAS@hotmail.co.th",  // sender
+            from: process.env.EMAIL_NODEMAILER,  // sender
             to: Mail,   // list of receivers
-            subject: 'ทดสอบแจ้งเตือนผ่านอีเมลรอบที่ 6 ',   // Mail subject
-            html: '<b>ทดสอบ API ผ่าน Backend ที่ deploy</b>'  // HTML body
+            subject: Subject,   // Mail subject
+            html: `<b>${Subject}</b>
+            <br/>
+            <b>สามารถดูรายละเอียดได้ที่ <a href="https://csscholarship.vercel.app/">https://csscholarship.vercel.app/</a></b>`  // HTML body
           };
-          new Promise((resolve, reject) => {
+          
             transporter.sendMail(mailOptions, function (err, info) {
             if(err)
-              reject(err)
+              console.log(err)
             else
-              resolve(res.send({result : data.rows})) 
-          });
+             res.send({result : data.rows})
+         
       })
-          
-        
     });
 }
 

@@ -1,11 +1,57 @@
-# starter-express-api
+# CsScholarship เว็บแอปพลิเคชันสำหรับจัดการทุนการศึกษา สาขา วิทยาการคอมพิวเตอร์
 
-This is the simplest possible nodejs api using express that responds to any request with: 
+เป็นแอปพลิเคชันที่พัฒนาด้วย React-Javascript
+
+## โครงสร้างโฟลเดอร์
+
+```bash
+├── starter-express-api
+│   ├── .github
+│   ├── controller
+│   │   ├── authen
+│   │   ├── classYearType
+│   │   ├── information
+│   │   ├── login
+│   │   ├── register
+│   │   ├── scholarship
+│   │   ├── scholarshipType
+│   │   ├── sendEmail
+│   │   ├── subscribe
+│   │   └── user_profile
+│   ├── enums
+│   ├── sql_tables
+│   │   ├── sql_table.sql
+│   ├── utils
+│   │   ├── check_grade
+│   │   ├── check_phonenumber
+│   │   └── check_uuid
+│   └── pool_connections.js
+├── .env.example
+├── .gitignore
+├── index.js
+├── package-lock.json
+├── package.json
+└── README.md
 ```
-Yo!
+
+## ขั้นตอนในการติดตั้ง
+
+1. ติดตั้ง node version 18.16.1 ที่นี่ https://nodejs.org/en/blog/release/v18.16.1
+
+2. ติดตั้ง git ผ่าน Command Prompt หรือ Powershell
+
+```
+winget install --id Git.Git -e --source winget
 ```
 
-### Deploy it in 7 seconds: 
+3. ใช้คำสั่ง git clone เพื่อทำการคัดลอกโปรเจกต์
 
-[![Deploy to Cyclic](https://deploy.cyclic.app/button.svg)](https://deploy.cyclic.app/)
+```
+git clone https://github.com/Weraphat-CSTU/starter-express-api.git
+```
 
+4. ติดตั้ง node module ผ่านคำสั่ง
+
+```
+npm install
+```
