@@ -18,9 +18,9 @@
 │   │   ├── sendEmail
 │   │   ├── subscribe
 │   │   └── user_profile
+│   ├── database
+│   │     └──create_db.sql
 │   ├── enums
-│   ├── sql_tables
-│   │   ├── sql_table.sql
 │   ├── utils
 │   │   ├── check_grade
 │   │   ├── check_phonenumber
